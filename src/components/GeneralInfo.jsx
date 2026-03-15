@@ -3,8 +3,17 @@ import { mdiAccountTie } from '@mdi/js';
 
 function GeneralInfo({ data, setData }) {
     const handleChange = (e) => {
-        setData({ ...data, [e.target.name] : e.target.value})
-    }
+        const { name, value } = e.target;
+
+        // 允許數字、"+" 號以及 "空格"
+        if (name === "phone") {
+            const filteredValue = value.replace(/[^0-9+\s]/g, '');
+            setData({ ...data, [name]: filteredValue });
+            return;
+        }
+
+        setData({ ...data, [name]: value });
+    };
 
     return (
         <CollapsibleSection title="Personal Information" icon={mdiAccountTie}>
@@ -47,8 +56,9 @@ function GeneralInfo({ data, setData }) {
             <label>
                 Phone
                 <input
-                    type="text"
+                    type="tel"
                     name="phone"
+                    placeholder="+886 912345678"
                     value={data.phone}
                     onChange={handleChange}
                 />
@@ -56,8 +66,9 @@ function GeneralInfo({ data, setData }) {
             <label>
                 Email
                 <input 
-                    type="text" 
+                    type="email" 
                     name="email"
+                    placeholder="example@gmail.com"
                     value={data.email}
                     onChange={handleChange}
                 />
@@ -65,8 +76,9 @@ function GeneralInfo({ data, setData }) {
             <label>
                 Github
                 <input 
-                    type="text" 
+                    type="url" 
                     name="github"
+                    placeholder="https://github.com/username"
                     value={data.github}
                     onChange={handleChange}
                 />
@@ -74,8 +86,9 @@ function GeneralInfo({ data, setData }) {
             <label>
                 Personal Website
                 <input 
-                    type="text" 
+                    type="url" 
                     name="website"
+                    placeholder="https://yourwebsite.com"
                     value={data.website}
                     onChange={handleChange}
                 />
