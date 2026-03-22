@@ -129,14 +129,16 @@
   margin-bottom: 1rem;
 
   display: flex;
-  align-items: center;  /* 垂直置中 */
-  gap: 0.5rem;          /* 標題和 input 之間留間距 */
+  align-items: center;
+  gap: 0.5rem;
 }
 
 .uploadImage label {
   display: flex;
   align-items: center;
+  justify-content: left;
   gap: 0.5rem;
+
   cursor: pointer;
 }
 
@@ -144,38 +146,46 @@
   font-weight: 700;
 }
 
-.photo-exists {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
+@media (max-width: 480px) {
+  .uploadImage input {
+    width: 50%;
+  }
 }
 
-/* 移除照片按鈕：文字與圖示並存 */
+@media (max-width: 360px) {
+  .uploadImage span {
+    width: 30%;
+  }
+
+  .uploadImage input {
+    width: 70%;
+  }
+}
+
+
+/* 移除照片按鈕 */
 .remove-photo-inline {
   display: flex;
   align-items: center;
-  gap: 4px;
+
   background: none;
-  border: 1px solid #C73E3A;
-  color: #C73E3A;
-  padding: 4px 8px;
-  border-radius: 4px;
-  cursor: pointer;
+  border: none;
+  color: hsl(var(--primary-dark));
+
   font-size: 0.8rem;
+  padding: 0;
+  margin-left: auto;
+  border-radius: 4px;
+
+  cursor: pointer;  
   transition: all 0.2s;
 }
 
 .remove-photo-inline:hover {
-  background-color: #C73E3A;
-  color: hsl(var(--white));
+  color: #C73E3A;
+  transform: scale(1.3);
 }
 
-/* 讓原本的上傳 label 也整齊一點 */
-.photo-upload-label {
-  display: flex;
-  align-items: center;
-  cursor: pointer;
-}
 
 
 /* 折疊區塊 */
@@ -250,7 +260,7 @@ button[aria-expanded="true"] .toggle-icon {
 .section-content textarea {
   width: 100%;
   min-height: 100px;       /* 預設高度 */
-  resize: vertical;        /* 使用者可以拉伸高度（只允許上下） */
+  resize: vertical;        /* 可以拉伸高度 */
   padding: 0.5rem;
   border: 1px solid hsl(var(--grey));
   background: hsl(var(--background));
@@ -661,7 +671,7 @@ input:focus, textarea:focus {
   word-wrap: break-word;       /* 強制長單字換行 */
   overflow-wrap: break-word;   /* 現代瀏覽器通用 */
   line-height: 1.5;
-  text-align: justify;         /* 讓文字對齊邊緣更美觀 */
+  text-align: justify;
 }
 
 .company, .school {
@@ -756,7 +766,7 @@ input:focus, textarea:focus {
   background-color: hsl(var(--primary-light)); 
   color: hsl(var(--primary-dark));
   
-  font-size: 0.65rem;         /* 簡歷上的字體通常較小 */
+  font-size: 0.65rem; 
   font-weight: 700;
   padding: 0.2rem 0.6rem;
   border-radius: 50px;
@@ -767,7 +777,7 @@ input:focus, textarea:focus {
 }
 
 .sideBar h3::after {
-  margin-bottom: 0.5rem; /* 增加標題與標籤區的距離 */
+  margin-bottom: 0.5rem;
 }
 
 

@@ -11,10 +11,34 @@ import { mdiRestart, mdiPrinter,  mdiEye, mdiFileEdit, mdiPhone, mdiEmail, mdiWe
 import './css/index.css'
 
 const LOCAL_STORAGE_KEY = 'cv_builder_data';
+const DEFAULT_CV_DATA = {
+  firstName: "Gagaa",
+  lastName: "Chu",
+  middleInitial: "C.",
+  jobTitle: "Web Developer",
+  phone: "+886 123 456 789",
+  email: "gagaa@gmail.com",
+  github: "github.com/gagaa03",
+  website: "gagaa.com",
+  location: "Taipei, Taiwan",
+  profile: "On the way of learning Web develope...",
+  experience: [
+    { company: "TSMC", startDate: "2022-10-15", endDate: "2023-10-15", position: "Human Resource assistant", description: "recruitment, compensation..." }
+  ],
+  education: [
+    { school: "The Odin Project", startDate: "2025-02-01", endDate: "", degree: "Student", major: "Full Stack WebDesigner", description: "keep learning..." }
+  ],
+  skills: {
+    "Frontend": ["HTML", "CSS", "JavaScript", "React"],
+    "Design": ["Premiere", "Photography"],
+    "Tools": ["Git", "Vite"]
+  },
+  photo: ""
+};
 
 function App() {
 
-  // 集中管理整份 CV
+  // 預設
   const [cvData, setCvData] = useState(() => {
     const savedData = localStorage.getItem(LOCAL_STORAGE_KEY);
 
@@ -26,46 +50,34 @@ function App() {
       }
     }
 
-    return {
-      firstName: "Gagaa",
-      lastName: "Chu",
-      middleInitial: "C.",
-      jobTitle: "Web Developer",
-      phone: "+886 123 456 789",
-      email: "gagaa@gmail.com",
-      github: "github.com/gagaa03",
-      website: "gagaa.com",
-      location: "Taipei, Taiwan",
-      profile: "On the way of learning Web develope...",
-      experience: [
-        { company: "TSMC", startDate: "2022-10-15", endDate: "2023-10-15", position: "Human Resource assistant", description: "recruitment, compensation..." }
-      ],
-      education: [
-        { school: "The Odin Project", startDate: "2025-02-01", endDate: "", degree: "Student", major: "Full Stack WebDesigner", description: "keep learning..." }
-      ],
-      skills: {
-        "Frontend": ["HTML", "CSS", "JavaScript", "React"],
-        "Design": ["Premiere", "Photography"],
-        "Tools": ["Git", "Vite"]
-      },
-      photo: ""
-    };
+    return DEFAULT_CV_DATA;
+
   });
 
+
+  // 照片檔案過大警示
   useEffect(() => {
     try {
       localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(cvData));
     } catch (e) {
       if (e.name === 'QuotaExceededError') {
-        alert("照片檔案太大了！重載將不存入照片");
+        alert("照片檔案太大！重新載入將不儲存照片");
       }
       console.error("LocalStorage Save Error:", e);
     }
   }, [cvData]);
 
+  // Reload CV
+  const loadExample = () => {
+    if (window.confirm("Load example data? Current progress will be overwritten.")) {
+      setCvData(DEFAULT_CV_DATA);
+    }
+  };
+
+
   const [previewVisible, setPreviewVisible] = useState(true);
   const [isMobile, setIsMobile] = useState(false);
-  const [scale, setScale] = useState(0.8);  // 桌機預設值
+  const [scale, setScale] = useState(0.8);  // 預覽預設值
   const a4Ref = useRef();
 
    // 響應式切換
@@ -170,6 +182,7 @@ function App() {
             <h1>Make Your CV</h1>
             <p>fast and effortless</p>            
           </header>
+
           <div className='uploadImage'>
             <label>
               <span>Upload Photo： </span>
@@ -185,7 +198,6 @@ function App() {
                 title="Remove current photo"
               >
                 <Icon path={mdiTrashCan} size={0.7} />
-                <span>Remove</span>
               </button>
             )}
           </div>
@@ -293,12 +305,13 @@ function App() {
         {/* 工具列 */}
         <div className="cv-tools">
           {isMobile && (
-            <button className="toggle-preview" onClick={togglePreview}>
-              {previewVisible ? <Icon path={mdiFileEdit} size={1} /> : <Icon path={mdiEye} size={1} />}
+            <button  className="toggle-preview" onClick={togglePreview}>
+              {previewVisible ? <Icon title='edit' path={mdiFileEdit} size={1} /> : <Icon title='preview' path={mdiEye} size={1} />}
             </button>
           )}
-          <button onClick={clearCV}><Icon path={mdiRestart} size={1} /></button>
-          <button onClick={printCV}><Icon path={mdiPrinter} size={1} /></button>
+          <button title="reload example" onClick={loadExample}><Icon path={mdiRestart} size={1}/></button>
+          <button title='clear' onClick={clearCV}><Icon path={mdiTrashCan} size={1} /></button>
+          <button title='print' onClick={printCV}><Icon path={mdiPrinter} size={1} /></button>
         </div>
       </>
   )
