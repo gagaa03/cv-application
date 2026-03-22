@@ -13,9 +13,9 @@
 <br/>
 
 <p align="left">
-  <img src="public/phone2.png" height="600">
+  <img src="public/phone1.png" height="500" alt="Phone Version">
   &nbsp;&nbsp;&nbsp;
-  <img src="public/phone1.png" height="600">
+  <img src="public/phone2.png" height="500 alt="Phone Version">
   <br/>
   </p>
 
