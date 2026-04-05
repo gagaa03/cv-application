@@ -13,9 +13,9 @@
 <br/>
 
 <p align="left">
-  <img src="public/phone2.png" height="600">
+  <img src="public/phone1.png" height="500" alt="Phone Version">
   &nbsp;&nbsp;&nbsp;
-  <img src="public/phone1.png" height="600">
+  <img src="public/phone2.png" height="500 alt="Phone Version">
   <br/>
   </p>
 
@@ -32,8 +32,8 @@
 
 
 ## 🔗 相關連結
-- **[Live Demo]**(https://luxury-entremet-80a074.netlify.app/)
-- **[Source Code]**(https://github.com/gagaa03/cv---application)
+- **[Live Demo](https://luxury-entremet-80a074.netlify.app/)**
+- **[Source Code](https://github.com/gagaa03/cv---application)**
 
 <br />
 
