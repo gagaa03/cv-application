@@ -211,7 +211,7 @@ function App() {
         {/* 預覽區 */}
         <div className={`preview-container ${(!isMobile || previewVisible) ? "show" : "hide"}`} style={{ '--preview-scale': scale }}>
           <div className="preview">
-            <div className='resume' ref={a4Ref} style={{ transform: `scale(${scale})` }}>
+            <div className='resume' style={{ transform: `scale(${scale})` }}>
           
               <div className='resume-header'>
                 <div className='selfimage'>
