@@ -64,7 +64,7 @@
 
 ```bash
 # 複製專案
-git clone [https://github.com/你的帳號/cv-application.git](https://github.com/你的帳號/cv-application.git)
+git clone [https://github.com/你的帳號/cv-application.git]
 
 # 安裝依賴
 npm install
