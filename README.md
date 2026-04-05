@@ -15,7 +15,7 @@
 <p align="left">
   <img src="public/phone1.png" height="500" alt="Phone Version">
   &nbsp;&nbsp;&nbsp;
-  <img src="public/phone2.png" height="500 alt="Phone Version">
+  <img src="public/phone2.png" height="500" alt="Phone Version">
   <br/>
   </p>
 
@@ -33,7 +33,7 @@
 
 ## 🔗 相關連結
 - **[Live Demo](https://luxury-entremet-80a074.netlify.app/)**
-- **[Source Code](https://github.com/gagaa03/cv---application)**
+- **[Source Code](https://github.com/gagaa03/cv-application)**
 
 <br />
 
@@ -46,7 +46,7 @@
 
 ## 🛠️ 使用技術
 - **Framework**: React.js
-- **Styling**: CSS Modules(HSL Variables, Grid & Flexbox, Media Queries)
+- **Styling**: CSS (HSL Variables, Grid & Flexbox, Media Queries)
 - **Icons**: @mdi/js (Material Design Icons)
 - **Deployment**: Netlify
 
