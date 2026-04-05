@@ -1007,28 +1007,3 @@ input:focus, textarea:focus {
 }
 
 
-/* 新增的 PDF 專用樣式，確保覆蓋性 */
-.resume.is-pdf-exporting .resume-body {
-    display: flex !important; 
-    flex-direction: row !important; 
-    justify-content: space-between !important;
-    align-items: flex-start !important;
-    gap: 1rem !important;
-}
-
-.resume.is-pdf-exporting .sideBar {
-    width: 10rem !important; 
-    flex-shrink: 0 !important;
-    background: hsl(var(--resume-sidebar)) !important;
-    padding: 1rem !important;
-}
-
-.resume.is-pdf-exporting .main-content {
-    flex-grow: 1 !important; 
-    padding-top: 1rem !important;
-}
-
-.resume.is-pdf-exporting {
-    transform: none !important; /* 匯出時暫時取消視覺縮放以便截取 */
-    box-shadow: none !important;
-}

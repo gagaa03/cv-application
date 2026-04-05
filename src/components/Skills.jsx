@@ -20,13 +20,14 @@ function Skills({ data, setData }) {
 
     // 分類的技能
     const handleSkillChange = (category, index, value) => {
-        const newSkills = [...data.skills];
-        newSkills[category][index] = value;
+        const newSkills = { ...data.skills };
+        const updated = [...newSkills[category]];
+        updated[index] = value;
+        newSkills[category] = updated;
         setData({ ...data, skills: newSkills });
     };
 
     const addCategory = () => {
-        const newCatName = `New Category ${Object.keys(data.skills).length + 1}`;
         setData({ ...data, skills: { ...data.skills, "New Category": [""] } });
     };
 

@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from 'react'
+import { useState, useEffect } from 'react'
 import GeneralInfo from './components/GeneralInfo';
 import Profile from "./components/Profile";
 import Education from "./components/Education";
@@ -78,14 +78,12 @@ function App() {
   const [previewVisible, setPreviewVisible] = useState(true);
   const [isMobile, setIsMobile] = useState(false);
   const [scale, setScale] = useState(0.8);  // 預覽預設值
-  const a4Ref = useRef();
 
    // 響應式切換
   useEffect(() => {
     const handleResize = () => {
       const screenWidth = window.innerWidth;
       const mobile = window.innerWidth <= 1120;
-      setIsMobile(mobile);
 
       if (mobile) {
         // (螢幕寬度 - 左右間距) / A4寬度
